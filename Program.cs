@@ -94,7 +94,41 @@ namespace CSharpBasics
             int z = Convert.ToInt32(Console.ReadLine());
             FunctionOverload fn = new FunctionOverload();
             Console.Write("\nMax between X and Y : {0}", fn.FindMax(x, y));
-            Console.Write("\n\nMax between X,Y and Z: {0}", fn.FindMax(x, y, z));
+            Console.Write("\n\nMax between X,Y and Z: {0}\n", fn.FindMax(x, y, z));
+
+            // Array in C#
+            int[] n = new int[10]; /* n is an array of 10 integers */
+            int ii, jj;
+            /* initialize elements of array n */
+            for (ii = 0; ii < 10; ii++)
+            {
+                n[ii] = ii + 100;
+            }
+            /* output each array element's value */
+            for (jj = 0; jj < 10; jj++)
+            {
+                Console.WriteLine("\nElement[{0}] = {1}", jj, n[jj]);
+            }
+
+            //from string literal and string concatenation
+            string fname, lname;
+            fname = "Raju";
+            lname = "Ingalgi";
+
+            char[] letters = { 'H', 'e', 'l', 'l', 'o' };
+            string[] sarray = { "Hello", "From", "Aryan", "Enterprises" };
+
+            string fullname = fname + lname;
+            Console.WriteLine("Full Name: {0}", fullname);        
+            string greetings = new string(letters);
+            Console.WriteLine("Greetings: {0}", greetings);           
+            string message = String.Join(" ", sarray);
+            Console.WriteLine("Message: {0}", message);
+
+            //formatting method to convert a value
+            DateTime waiting = new DateTime(2018, 07, 22, 17, 58, 0);
+            string chat = String.Format("Message sent at {0:t} on {0:D}", waiting);
+            Console.WriteLine("Message: {0}", chat);
             Console.ReadKey();
         }
     }
