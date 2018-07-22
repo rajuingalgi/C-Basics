@@ -25,6 +25,18 @@ namespace CSharpBasics
                 Console.WriteLine("Area: {0}", GetArea());
             }
         }
+        class FunctionOverload
+        {
+            public int FindMax(int num1, int num2)
+            {               
+                return Math.Max(num1, num2);
+            }
+
+            public int FindMax(int num1, int num2, int num3)
+            {                
+                return Math.Max(num1, Math.Max(num2, num3));
+            }
+        }
         static void Main(string[] args)
         {
             /* My First Program in C# */
@@ -33,14 +45,13 @@ namespace CSharpBasics
             /* My Second Program in C# */
             int num;
             Console.Write("\nEnter a value of N: ");
-            num = Convert.ToInt32(Console.ReadLine());           
+            num = Convert.ToInt32(Console.ReadLine());
             Console.WriteLine("\nValue of N: {0}\n", num);
 
             /* Area of Rectangle Program in C# */
             Rectangle rect = new Rectangle();
             rect.Acceptdetails();
-            rect.Display();
-            Console.ReadLine();
+            rect.Display();           
 
             /* sizeof in C# */
             Console.WriteLine("Size of int: {0} \n", sizeof(int));
@@ -64,15 +75,26 @@ namespace CSharpBasics
             /* Actual initialization */
             a = 10; b = 20;
             c = a + b;
-            Console.WriteLine("\nA = {0}, B = {1}, Addition of A and B = {2}", a, b, c);           
+            Console.WriteLine("\nA = {0}, B = {1}, Addition of A and B = {2}", a, b, c);
 
             // Constant declaration 
             const double pi = 3.14159;
             double r;
             Console.Write("\nEnter Radius: ");
-            r = Convert.ToDouble(Console.ReadLine());           
+            r = Convert.ToDouble(Console.ReadLine());
             double areaCircle = pi * r * r;
             Console.WriteLine("\nValue of Radius: {0}, \tArea: {1}", r, areaCircle);
+
+            // Function overloading
+            Console.Write("\nEnter value of X: ");
+            int x = Convert.ToInt32(Console.ReadLine());
+            Console.Write("\nEnter value of Y: ");
+            int y = Convert.ToInt32(Console.ReadLine());         
+            Console.Write("\nEnter value of Z: ");
+            int z = Convert.ToInt32(Console.ReadLine());
+            FunctionOverload fn = new FunctionOverload();
+            Console.Write("\nMax between X and Y : {0}", fn.FindMax(x, y));
+            Console.Write("\n\nMax between X,Y and Z: {0}", fn.FindMax(x, y, z));
             Console.ReadKey();
         }
     }
