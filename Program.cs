@@ -1,16 +1,78 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace CSharpBasics
 {
     class Program
     {
+        class Rectangle
+        {
+            // Member variables
+            double length;
+            double width;
+            public void Acceptdetails()
+            {
+                length = 4.5;
+                width = 3.5;
+            }
+            public double GetArea()
+            {
+                return length * width;
+            }
+            public void Display()
+            {
+                Console.WriteLine("Length: {0}", length);
+                Console.WriteLine("Width: {0}", width);
+                Console.WriteLine("Area: {0}", GetArea());
+            }
+        }
         static void Main(string[] args)
         {
-            Console.Write("Hello World");
+            /* My First Program in C# */
+            Console.WriteLine("Hello World");
+
+            /* My Second Program in C# */
+            int num;
+            Console.Write("\nEnter a value of N: ");
+            num = Convert.ToInt32(Console.ReadLine());           
+            Console.WriteLine("\nValue of N: {0}\n", num);
+
+            /* Area of Rectangle Program in C# */
+            Rectangle rect = new Rectangle();
+            rect.Acceptdetails();
+            rect.Display();
+            Console.ReadLine();
+
+            /* sizeof in C# */
+            Console.WriteLine("Size of int: {0} \n", sizeof(int));
+
+            object obj;
+            obj = 100;      // this is boxing
+
+            // ast double to int.
+            double d = 5673.74; int i;
+            i = (int)d;
+
+            // Addition of two numbers
+            int new_i = 75; float new_f = 53.005f; double new_d = 2345.7652; bool new_b = true;
+
+            Console.WriteLine("Integer value of i: " + new_i.ToString());
+            Console.WriteLine("Integer value of f: " + new_f.ToString());
+            Console.WriteLine("Integer value of d: " + new_d.ToString());
+            Console.WriteLine("Boolean value of b: " + new_b.ToString());
+
+            short a; int b; double c;
+            /* Actual initialization */
+            a = 10; b = 20;
+            c = a + b;
+            Console.WriteLine("\nA = {0}, B = {1}, Addition of A and B = {2}", a, b, c);           
+
+            // Constant declaration 
+            const double pi = 3.14159;
+            double r;
+            Console.Write("\nEnter Radius: ");
+            r = Convert.ToDouble(Console.ReadLine());           
+            double areaCircle = pi * r * r;
+            Console.WriteLine("\nValue of Radius: {0}, \tArea: {1}", r, areaCircle);
             Console.ReadKey();
         }
     }
