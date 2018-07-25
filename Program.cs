@@ -29,12 +29,12 @@ namespace CSharpBasics
         class FunctionOverload
         {
             public int FindMax(int num1, int num2)
-            {               
+            {
                 return Math.Max(num1, num2);
             }
 
             public int FindMax(int num1, int num2, int num3)
-            {                
+            {
                 return Math.Max(num1, Math.Max(num2, num3));
             }
         }
@@ -42,15 +42,34 @@ namespace CSharpBasics
         {
             public void StackOperation()
             {
-                Stack s = new Stack();
-                s.Push(1);
+                Stack s = new Stack();  // LIFO - Last In First Out
+                s.Push(1);  // Push for Add in Stack
                 s.Push(2);
                 s.Push(3);
                 s.Push(4);
                 s.Push(5);
+                s.Pop();    // Pop for Remove from Stack 
                 foreach (int i in s)
                 {
-                    Console.WriteLine("\nStack : {0}", i);
+                    Console.WriteLine("\nStack Value: {0}", i);
+                }
+
+            }
+        }
+        class QueueView
+        {
+            public void QueueOperation()
+            {
+                Queue q = new Queue();      // FIFO - First In First Out
+                q.Enqueue(1);   // Enqueue for Add in Queue
+                q.Enqueue(2);
+                q.Enqueue(3);
+                q.Enqueue(4);
+                q.Enqueue(5);
+                q.Dequeue();    // Dequeue for Remove from Queue 
+                foreach (int i in q)
+                {
+                    Console.WriteLine("\nQueue Value: {0}", i);
                 }
             }
         }
@@ -150,9 +169,11 @@ namespace CSharpBasics
                 Console.WriteLine("Message: {0}", chat);
                 StackView stackView = new StackView();
                 stackView.StackOperation();
+                QueueView queueView = new QueueView();
+                queueView.QueueOperation();
                 Console.ReadKey();
             }
-            catch(Exception Code)
+            catch (Exception Code)
             {
                 Console.WriteLine("Error Code : {0}", Code);
             }
