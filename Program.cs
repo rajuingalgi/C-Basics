@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 
 namespace CSharpBasics
 {
@@ -35,6 +36,22 @@ namespace CSharpBasics
             public int FindMax(int num1, int num2, int num3)
             {                
                 return Math.Max(num1, Math.Max(num2, num3));
+            }
+        }
+        class StackView
+        {
+            public void StackOperation()
+            {
+                Stack s = new Stack();
+                s.Push(1);
+                s.Push(2);
+                s.Push(3);
+                s.Push(4);
+                s.Push(5);
+                foreach (int i in s)
+                {
+                    Console.WriteLine("\nStack : {0}", i);
+                }
             }
         }
         static void Main(string[] args)
@@ -131,6 +148,8 @@ namespace CSharpBasics
                 DateTime waiting = new DateTime(2018, 07, 22, 17, 58, 0);
                 string chat = String.Format("Message sent at {0:t} on {0:D}", waiting);
                 Console.WriteLine("Message: {0}", chat);
+                StackView stackView = new StackView();
+                stackView.StackOperation();
                 Console.ReadKey();
             }
             catch(Exception Code)
