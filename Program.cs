@@ -73,6 +73,31 @@ namespace CSharpBasics
                 }
             }
         }
+        class BitArrayView
+        {
+            public void BitArrayOperations()
+            {
+                BitArray bitArray1 = new BitArray(8);
+                BitArray bitArray2 = new BitArray(8);
+
+                byte[] a = { 55 };
+                byte[] b = { 75 };
+
+                bitArray1 = new BitArray(a);
+                bitArray2 = new BitArray(b);
+
+                Console.WriteLine("\nBitArray1 Binary of Number 55:");
+                foreach (int i in bitArray1)
+                {
+                    Console.Write(i + " ");
+                }
+                Console.WriteLine("\nBitArray2 Binary of Number 75:");
+                foreach (int j in bitArray2)
+                {
+                    Console.Write(j + " ");
+                }            
+            }
+        }
         static void Main(string[] args)
         {
             try
@@ -171,6 +196,8 @@ namespace CSharpBasics
                 stackView.StackOperation();
                 QueueView queueView = new QueueView();
                 queueView.QueueOperation();
+                BitArrayView bitArrayView = new BitArrayView();
+                bitArrayView.BitArrayOperations();
                 Console.ReadKey();
             }
             catch (Exception Code)
