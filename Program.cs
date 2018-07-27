@@ -1,11 +1,13 @@
 ﻿using System;
 using System.Collections;
+using System.Threading;
+
 delegate void NumberChanger(int n);
 
 namespace CSharpBasics
 {
     class Program
-    {        
+    {
         static int num = 10;
         public static void AddNum(int p)
         {
@@ -111,13 +113,13 @@ namespace CSharpBasics
                 foreach (int j in bitArray2)
                 {
                     Console.Write(j + " ");
-                }            
+                }
             }
         }
         static void Main(string[] args)
         {
             try
-            {                
+            {
                 /* My First Program in C# */
                 Console.WriteLine("Hello World");
 
@@ -203,6 +205,12 @@ namespace CSharpBasics
                 Console.WriteLine("Greetings: {0}", greetings);
                 string message = String.Join(" ", sarray);
                 Console.WriteLine("Message: {0}", message);
+                Console.ReadKey();
+
+                Thread th = Thread.CurrentThread;
+                th.Name = "Main Thread";
+                Console.WriteLine("Thread Namer: " + th.Name);
+                Console.ReadKey();
 
                 //formatting method to convert a value
                 DateTime waiting = new DateTime(2018, 07, 22, 17, 58, 0);
@@ -226,7 +234,7 @@ namespace CSharpBasics
                 nc = new NumberChanger(AddNum);
                 // Calling the delegate using anonymous method.
                 nc(15);
-                Console.ReadKey();               
+                Console.ReadKey();
             }
             catch (Exception Code)
             {
