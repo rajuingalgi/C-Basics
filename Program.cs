@@ -1,10 +1,26 @@
 ﻿using System;
 using System.Collections;
+delegate void NumberChanger(int n);
 
 namespace CSharpBasics
 {
     class Program
-    {
+    {        
+        static int num = 10;
+        public static void AddNum(int p)
+        {
+            num += p;
+            Console.WriteLine("\nNamed Method: {0}", num);
+        }
+        public static void MultNum(int p)
+        {
+            num *= p;
+            Console.WriteLine("\nNamed Method: {0}", num);
+        }
+        public static int GetNum()
+        {
+            return num;
+        }
         class Rectangle
         {
             // Member variables
@@ -101,7 +117,7 @@ namespace CSharpBasics
         static void Main(string[] args)
         {
             try
-            {
+            {                
                 /* My First Program in C# */
                 Console.WriteLine("Hello World");
 
@@ -198,7 +214,19 @@ namespace CSharpBasics
                 queueView.QueueOperation();
                 BitArrayView bitArrayView = new BitArrayView();
                 bitArrayView.BitArrayOperations();
-                Console.ReadKey();
+
+                // Create delegate instance using anonymous method.
+                NumberChanger nc = delegate (int X)
+                {
+                    Console.WriteLine("\nAnonymous Method: {0}", X);
+                };
+                // Calling the delegate using anonymous method.
+                nc(10);
+                // Instanceing the delegate using the named method.
+                nc = new NumberChanger(AddNum);
+                // Calling the delegate using anonymous method.
+                nc(15);
+                Console.ReadKey();               
             }
             catch (Exception Code)
             {
